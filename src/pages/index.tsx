@@ -4,7 +4,6 @@ import { getSession } from 'next-auth/react';
 
 export default function Home() {
   const { data: session } = useSession();
-  console.log(session);
 
   return (
     <>
@@ -37,7 +36,6 @@ export default function Home() {
 
 export async function getServerSideProps(ctx: NextPageContext) {
   const session = await getSession(ctx);
-  console.log(session);
   return {
     props: {
       session,
