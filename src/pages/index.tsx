@@ -45,6 +45,8 @@ export async function getServerSideProps(ctx: NextPageContext) {
   };
 }
 
+// # https://passwordsgenerator.net/
+
 // https://github.com/settings/developers
 // https://console.cloud.google.com/getting-started
 // https://discord.com/developers/applications
