@@ -1,5 +1,6 @@
-import { getSession, useSession, signIn, signOut } from 'next-auth/react';
+import { useSession, signIn, signOut } from 'next-auth/react';
 import { NextPageContext } from 'next';
+import { getSession } from 'next-auth/react';
 
 export default function Home() {
   const { data: session } = useSession();
@@ -11,11 +12,14 @@ export default function Home() {
         {session ? (
           <div className="flex flex-col gap-1 items-center">
             <h2>{session?.user?.name}</h2>
-            <img
-              src={session?.user?.image}
-              alt=""
-              className="w-[128px] h-32 rounded-full"
-            />
+            {session?.user?.image && (
+              <img
+                src={session?.user?.image}
+                alt=""
+                className="w-[128px] h-32 rounded-full"
+              />
+            )}
+
             <h4>{session?.user?.email}</h4>
             <button onClick={() => signOut()} className="bg-blue-500">
               Sign Out
