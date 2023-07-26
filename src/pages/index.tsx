@@ -4,6 +4,7 @@ import { getSession } from 'next-auth/react';
 
 export default function Home() {
   const { data: session } = useSession();
+  console.log('hello');
 
   return (
     <>
@@ -18,7 +19,6 @@ export default function Home() {
                 className="w-[128px] h-32 rounded-full"
               />
             )}
-
             <h4>{session?.user?.email}</h4>
             <button onClick={() => signOut()} className="bg-blue-500">
               Sign Out
